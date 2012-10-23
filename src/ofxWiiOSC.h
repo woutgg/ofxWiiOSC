@@ -6,13 +6,8 @@
  *  Copyright 2011 PatricioGonzalezVivo.com. All rights reserved.
  *
  */
-
 #ifndef _OFXWIIOSC
 #define _OFXWIIOSC
-
-#define  IN_PORT	5600
-#define OUT_PORT 5601
-#define OUT_HOST "localhost"
 
 #include "ofxOsc.h"
 
@@ -27,13 +22,14 @@ typedef struct {
 	float x,y,s;
 } IRdata;
 
-class ofxWiiOSC{
+class ofxWiiOSC {
 public:
-	ofxOscSender	sender;
-	ofxOscReceiver	receiver;
+	static const int IN_PORT;
+	static const int OUT_PORT;
+	static const std::string OUT_HOST;
 	
-	IRdata	ir[4];
-	Acceleration  acc;
+	IRdata ir[4];
+	Acceleration acc;
 	Acceleration nAcc;
 	
 	float	x,y;
@@ -43,8 +39,8 @@ public:
 	float	nRoll, nPitch;
 	float	batterylevel;
 	bool	buttonA, buttonB, buttonUp, buttonDown, buttonLeft, buttonRight;
-	bool	buttonOne, buttonTwo, buttonMinus, buttonPlus, buttonHome,buttonC,buttonZ;
-	bool	isConnected,mouseMode,isNunchuck;
+	bool	buttonOne, buttonTwo, buttonMinus, buttonPlus, buttonHome, buttonC, buttonZ;
+	bool	isConnected, mouseMode, isNunchuck;
 	
 	ofxWiiOSC();
 	
@@ -54,5 +50,10 @@ public:
 	void setLed(int n1, int n2, int n3, int n4);
 	
 	void draw(ofPoint pos);
+	
+private:
+	ofxOscSender sender;
+	ofxOscReceiver receiver;
 };
-#endif
+
+#endif /* ! _OFXWIIOSC */

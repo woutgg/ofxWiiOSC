@@ -6,12 +6,21 @@
  *  Copyright 2011 PatricioGonzalezVivo.com. All rights reserved.
  *
  */
-
 #include "ofxWiiOSC.h"
 
-ofxWiiOSC::ofxWiiOSC(){
+const int ofxWiiOSC::IN_PORT = 5600;
+const int ofxWiiOSC::OUT_PORT = 5601;
+const std::string ofxWiiOSC::OUT_HOST = "localhost";
+
+ofxWiiOSC::ofxWiiOSC()
+: x(0.0f), y(0.0f), nX(0.0f), nY(0.0f), pNx(0.0f), pNy(0.0f),
+  roll(0.0f), pitch(0.0f), nRoll(0.0f), nPitch(0.0f), batterylevel(0.0f),
+  buttonA(false), buttonB(false), buttonUp(false), buttonDown(false), buttonLeft(false), buttonRight(false),
+  buttonOne(false), buttonTwo(false), buttonMinus(false), buttonPlus(false), buttonHome(false), buttonC(false), buttonZ(false),
+  isConnected(false), mouseMode(false), isNunchuck(false)
+{
 	receiver.setup(IN_PORT);
-	sender.setup( OUT_HOST, OUT_PORT );
+	sender.setup(OUT_HOST, OUT_PORT);
 	isNunchuck = false;
 }
 
