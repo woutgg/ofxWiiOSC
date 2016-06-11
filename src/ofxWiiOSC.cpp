@@ -27,7 +27,7 @@ ofxWiiOSC::ofxWiiOSC()
 void ofxWiiOSC::update(){
 	while( receiver.hasWaitingMessages() ){
 		ofxOscMessage m;
-		receiver.getNextMessage( &m );
+		receiver.getNextMessage( m );
 		
 		if ( m.getAddress() == "/wii/connected" )
 			isConnected = (m.getArgAsInt32(0)==0)?false:true;
@@ -102,7 +102,7 @@ void ofxWiiOSC::draw(ofPoint pos){
 		ofTranslate(pos);
 		ofSetColor(255);
 		//glScalef(5, 40, 5);
-		ofBox(0, 0, 0, 1);
+		ofDrawBox(0, 0, 0, 1);
 		ofDrawAxis(20);
 		//ofRect(pos.x, pos.y, 20, 60);
 		ofPopMatrix();
