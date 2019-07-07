@@ -7,6 +7,9 @@
  *
  */
 #include "ofxWiiOSC.h"
+#include "of3dGraphics.h"
+#include "of3dUtils.h"
+#include "ofGraphics.h"
 
 const int ofxWiiOSC::IN_PORT = 5600;
 const int ofxWiiOSC::OUT_PORT = 5601;
